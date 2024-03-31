@@ -39,5 +39,5 @@ for page in range(1, max_page + 1):
         time.sleep(0.1)
 
 print('Done.')
-with open('index.json', 'w') as f:
+with open('index.json', 'w', encoding='utf-8') as f:
     json.dump(index, f, indent=4, ensure_ascii=False)
