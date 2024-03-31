@@ -18,7 +18,7 @@
 
 1. [index.json](index.json): 猪肉价格相关的所有文章日期、标题和链接。
 2. [qg_data.json](qg_data.json): 【卓创资讯】的国内生猪重点市场9点半价格早报表格数据。
-3. [prices.json](prices.json): 当日各地的猪肉价格(元/斤)。
+3. [prices.json](prices.json): 当日各地的猪肉价格(元/公斤)。
 4. [after.json](after.json): 后处理后的猪肉价格变化数据。
 
 数据集中出现的个别忘记小数点、表结构不同等异常数据已处理。
