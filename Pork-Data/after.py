@@ -13,6 +13,11 @@ for price in data:
 for price in after:
     price['avr'] = sum(list(price['price'].values())) / len(price['price'].values())
 
+count = 0
+for price in after:
+    count += price['avr']
+print(f'The average price: {count/len(after)}')
+
 with open('after.json', 'w', encoding='utf-8') as f:
     json.dump(after, f, ensure_ascii=False, indent=4)
 
