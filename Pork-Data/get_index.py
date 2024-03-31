@@ -18,7 +18,13 @@ for page in range(1, max_page + 1):
         page_url = url
     else:
         page_url = url + f'{str(page)}.html'
-    page_response = requests.get(page_url)
+    response = None
+    while True:
+        try:
+            page_response = requests.get(page_url)
+        except requests.exceptions.ReadTimeout:
+            continue
+        break
     page_soup = BeautifulSoup(page_response.content, 'html.parser')
     for item in list(page_soup.find('div', class_='ov').children)[3].ul:
         if str(item) == '\n':

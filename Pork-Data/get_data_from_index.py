@@ -14,7 +14,13 @@ print(f'Got {len(qg_index)} indexes around full country.')
 
 for idx, item in enumerate(qg_index.copy()):
     print(f'Processing data: {item["date"]} {item["title"]} ({idx+1}/{len(qg_index)})...')
-    response = requests.get(item['url'])
+    response = None
+    while True:
+        try:
+            response = requests.get(item['url'])
+        except requests.exceptions.ReadTimeout:
+            continue
+        break
     soup = BeautifulSoup(response.content, 'html.parser')
     table = soup.find('table')
 
